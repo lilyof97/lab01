@@ -17,17 +17,23 @@ forever #10 clk=~clk;
 end
 initial begin
 //inicialitzem els inputs
-// comprovem per rst 1 i en 0
+// comprovem per rst 0 i en 0
 rst <= 1'b0;
 en <= 1'b0; #20
-//per rst 0 i en 1
+//per rst 1 i en 0
 rst <= 1'b1;
 en <= 1'b0; #20
-//per rst 0 i en 0
+//per rst 1 i en 1
 rst <= 1'b1;
-en <= 1'b1; #20
+en <= 1'b1; #40
+//per rst 1 i en 0
+rst <= 1'b1;
+en <= 1'b0; #20
+//per rst 1 i en 1
+rst <= 1'b1;
+en <= 1'b1; 
 
-#100
+#200
 
  $stop;
 end
